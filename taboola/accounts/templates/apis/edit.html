@@ -1,0 +1,147 @@
+{% extends 'user_base/base.html' %}
+{% load static %}
+{% block title %}
+<title>Taboola |Taboola Segment</title>
+{% endblock %}
+{% block content %}
+<!-- Site wrapper -->
+<div class="wrapper">
+   <!-- Navbar -->
+   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+         <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+         </li>
+         <li class="nav-item d-none d-sm-inline-block">
+            <a href="." class="nav-link">Home</a>
+         </li>
+         <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link">Edit Taboola</a>
+         </li>
+      </ul>
+      <!-- SEARCH FORM -->
+      <form class="form-inline ml-3">
+         <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+               <button class="btn btn-navbar" type="submit">
+               <i class="fas fa-search"></i>
+               </button>
+            </div>
+         </div>
+      </form>
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+         <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <i class="fas fa-th-large"></i>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <!-- /.navbar -->
+   <!-- Content Wrapper. Contains page content -->
+   <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+         <div class="container-fluid">
+            <div class="row mb-2">
+               <div class="col-sm-6">
+                  <h1>Edit Taboola Record</h1>
+               </div>
+               <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                     <li class="breadcrumb-item"><a href="#">Home</a></li>
+                     <li class="breadcrumb-item active">Edit Taboola Record</li>
+                  </ol>
+               </div>
+            </div>
+         </div>
+         <!-- /.container-fluid -->
+      </section>
+      <!-- Main content -->
+      {% if msg %}
+      <div class="alert alert-danger">{{msg}}</div>
+      {% endif %}
+      {% if success_msg %}
+      <div class="alert alert-success">{{success_msg}}</div>
+      {% endif %}
+      <section class="content">
+         <form action="/edit/{{one_record.id}}/" method="POST" id="age_segment_form">
+            <input type="hidden" name="hidden_id" value="{{one_record.id}}">
+            {% csrf_token %}
+            <div class="row">
+               <div class="col-md-2">
+               </div>
+               <div class="col-md-8">
+                  <div class="card card-primary">
+                     <div class="card-header">
+                        <h3 class="card-title">Edit Taboola Record</h3>
+                        <div class="card-tools">
+                           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                           <i class="fas fa-minus"></i>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="card-body">
+                        <div class="form-group" style="display: none;">
+                           <label for="inputName">Campaign Name</label>
+                           <input name="name" type="hidden" class="form-control" value='{{one_record.Campaign_Name}}'>
+                        </div>
+                        <div class="form-group" style="display: none;">
+                           <label for="inputName">Campaign Status</label>
+                           <input name="Campaign_Status" type="hidden" class="form-control" value='{{one_record.Campaign_Status}}'  >
+                        </div>
+                        <div class="form-group" style="display: none;">
+                           <label for="inputDescription">Taboola Clicks </label>
+                           <input name="Taboola_Clicks" type="hidden" class="form-control" {% if one_record.Taboola_Clicks %} value='{{one_record.Taboola_Clicks}}' {% else %} value="0" {% endif %}>
+                        </div>
+
+                        <div class="form-group" style="display: none;">
+                           <label for="inputDescription">Campaign CTR</label>
+                           <input name="Campaign_CTR" type="hidden" class="form-control" {% if one_record.Campaign_CTR %} value='{{one_record.Campaign_CTR}}' {% else %} value="0" {% endif %}>
+                        </div>
+                        <div class="form-group">
+                           <label for="inputName">Taboola Campaign Level CPC</label>
+                           <input name="Taboola_Campaign_Level_CPC" type="text" class="form-control"  value="{{one_record.Taboola_Campaign_Level_CPC}}">
+                        </div>
+                        <div class="form-group">
+                           <label for="inputName">Daily spend</label>
+                           <input name="Daily_Spend" type="text" class="form-control" value='{{one_record.Daily_Spend}}' >
+                        </div>
+                  <div class="row">
+                  <div class="col-8">
+                  <input type="submit" class="btn btn-success">
+                  </div>
+            <br>
+         </form>
+      </section>
+   </div>
+<footer class="main-footer">
+   <div class="float-right d-none d-sm-block">
+      <b>Version</b> 3.1.0-rc
+   </div>
+   <strong>Copyright &copy; 2021 <a href=".">Taboola.io</a>.</strong> All rights reserved.
+</footer>
+{% include 'user_base/sidewar.html' %}
+</div>
+<!-- ./wrapper -->
+<script>
+  $(function () {
+    // Summernote
+    $('#ethnicity_text_id').summernote()
+
+    // CodeMirror
+    CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+      mode: "htmlmixed",
+      theme: "monokai"
+    });
+  })
+</script>
+{% endblock %}

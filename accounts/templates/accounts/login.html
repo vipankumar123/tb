@@ -1,0 +1,75 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block content %}
+{% block title %} 
+<title> Taboola | Login</title>
+{% endblock %}
+<div class="login-box">
+   
+   <div class="login-logo">
+      <a href="."><b>Taboola</b>Login</a>
+
+   </div>
+      {% if msg %}
+      <div class="alert alert-danger">{{msg}}</div>
+      {% endif %}
+
+      {% if success_msg %}
+      <div class="alert alert-success">{{success_msg}}</div>
+      {% endif %}
+   <!-- /.login-logo -->
+   <div class="card">
+      <div class="card-body login-card-body">
+         <p class="login-box-msg">Sign in to start your session</p>
+         <form action="" method="post" id="loginform">
+            {% csrf_token %}
+            <span class="error-msg" id="user_label" style="margin-bottom: 4px"></span>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Username" id="username_id" name="username" onkeyup="Username()" maxlength="20" minlength="3">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+            <span class="error-msg" id="password_label" style="margin-bottom: 4px"></span>
+            <div class="input-group mb-3">
+               <input type="password" class="form-control" placeholder="Password" name="password" onkeyup="Password_Register()" id="registerPassword">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-eye" style="cursor: pointer" onclick="show()"></span>
+                  </div>
+                </div>
+
+               <div class="input-group-append">
+                  <div class="input-group-text">
+                     <span class="fas fa-lock"></span>
+                  </div>
+               </div>
+
+            </div>
+            <div class="row">
+               <div class="col-8">
+                  <div class="icheck-primary">
+                     <input type="checkbox" id="remember">
+                     <label for="remember">
+                     Remember Me
+                     </label>
+                  </div>
+               </div>
+               <!-- /.col -->
+               <div class="col-4">
+                  <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+               </div>
+               <!-- /.col -->
+            </div>
+         </form>
+
+
+         <!-- /.social-auth-links -->
+      </div>
+      <!-- /.login-card-body -->
+   </div>
+</div>
+<script src="{% static 'js/accounts/login.js'%}"></script>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/icheck-bootstrap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'css/adminlte.min.css' %}">
+      {% block head %}
+      {% endblock %}
+  <style type="text/css">
+     .form-control.has-error {
+     border: 1px solid #FB404B !important;
+     color: #FB404B !important;
+     }
+     .form-control.has-success {
+     border: 1px solid #28a745 !important;
+     color: #28a745 !important;
+     }
+     .error-msg {
+     color: red;
+     font-size: 13px;
+     margin: 3px;
+     }
+     .dropzone.dz-clickable .dz-message {
+     display: none;
+     }
+     .swal-button--cancel {
+         color: black;
+         background-color: darkgray;
+      }
+      .swal-button-container {
+         margin-right: 22%;
+      }
+  </style>
+
+
+</head>
+<body class="hold-transition register-page">
+
+  {% block content %}
+  {% endblock %}
+
+<!-- jQuery -->
+<!-- Bootstrap 4 -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+</body>
+</html>
+

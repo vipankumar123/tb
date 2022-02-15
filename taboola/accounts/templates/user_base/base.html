@@ -1,0 +1,198 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block tittle %}
+  <title></title>
+  {% endblock %}
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <style type="text/css">
+             /* my custom toggle css*/
+          .form-control.has-error {
+         border: 1px solid #FB404B !important;
+         color: #FB404B !important;
+         }
+         .form-control.has-success {
+         border: 1px solid #28a745 !important;
+         color: #28a745 !important;
+         }
+         .error-msg {
+         color: red;
+         font-size: 13px;
+         margin: 3px;
+         }
+         .switch {
+         position: relative;
+         display: inline-block;
+         width: 35px;
+         height: 20px;
+         }
+         .switch input { 
+         opacity: 0;
+         width: 0;
+         height: 0;
+         }
+         .slider {
+         position: absolute;
+         cursor: pointer;
+         top: 0;
+         left: -2px;
+         right: -2px;
+         bottom: 0;
+         background-color: #ccc!important;
+         -webkit-transition: .4s;
+         transition: .4s;
+         }
+         .slider:before {
+         position: absolute;
+         content: "";
+         height: 14px;
+         width: 16px;
+         left: 1px;
+         bottom: 2.7px;
+         background-color: white;
+         -webkit-transition: .4s;
+         transition: .4s;
+         border-radius:10px;
+         }
+         input:checked + .slider {
+         background-color:#3e7fc1!important;
+         }
+         input:focus + .slider {
+         box-shadow: 0 0 1px #2196F3;
+         }
+         input:checked + .slider:before {
+         -webkit-transform: translateX(46px);
+         -ms-transform: translateX(46px);
+         transform: translateX(21px);
+         }
+         /* Rounded sliders */
+         .slider.round {
+         border-radius: 34px;
+         }
+         /*end here toggle css*/
+
+  </style>
+  <style type="text/css">
+    .input-group-sm>.custom-select, .input-group-sm>.form-control:not(textarea) {
+    height: calc(1.8125rem + 9px) !important;
+}
+  </style>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
+  <link rel="stylesheet" href="{% static 'css/common/dashboard/all.min.css' %}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{% static 'css/common_css/responsive.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/common/icheck-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/common/OverlayScrollbars.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/common/toastr.min.css' %}">
+
+  <link rel="stylesheet" href="{% static 'select2/css/select2.min.css' %}">
+  <link rel="stylesheet" href="{% static 'select2/select2-bootstrap4-theme/select2-bootstrap4.min.css' %}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static 'css/common/summernote-bs4.min.css' %}">
+  <!-- CodeMirror -->
+  <link rel="stylesheet" href="{% static 'css/common/codemirror.css' %}">
+  <link rel="stylesheet" href="{% static 'css/common/monokai.css' %}">
+  <!-- SimpleMDE -->
+  <link rel="stylesheet" href="{% static 'css/common/simplemde.min.css' %}">
+
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'css/common_css/adminlte.min.css' %}">
+      <!-- jQuery -->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+
+</head>
+<body class="hold-transition sidebar-mini">
+
+  {% block content %}
+  {% endblock %}
+
+<!-- Bootstrap 4 -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<!-- DataTables  & Plugins -->
+<script src="{% static 'js/dataTables.min.js' %}"></script>
+  <script src="{% static 'js/jquery.overlayScrollbars.min.js' %}"></script>
+
+<script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'js/responsive.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'js/jszip.min.js' %}"></script>
+<script src="{% static 'js/pdfmake.min.js' %}"></script>
+<script src="{% static 'js/vfs_fonts.js' %}"></script>
+<script src="{% static 'js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'js/buttons.print.min.js' %}"></script>
+<script src="{% static 'js/buttons.colVis.min.js' %}"></script>
+<script src="{% static 'js/jquery.mousewheel.js' %}"></script>
+<script src="{% static 'js/raphael.min.js' %}"></script>
+
+<script src="{% static 'js/jquery.mapael.min.js' %}"></script>
+<script src="{% static 'js/usa_states.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'js/Chart.min.js' %}"></script>
+<script src="{% static 'js/dashboard3.js' %}"></script>
+<script src="{% static 'js/sweetalert2.min.js' %}"></script>
+<script src="{% static 'js/toastr.min.js' %}"></script>
+<script src="{% static 'select2/js/select2.full.min.js' %}"></script>
+
+<!-- Summernote -->
+<script src="{% static 'js/summernote/summernote-bs4.min.js' %}"></script>
+<!-- CodeMirror -->
+<script src="{% static 'js/codemirror/codemirror.js' %}"></script>
+<script src="{% static 'js/codemirror/mode/css/css.js' %}"></script>
+<script src="{% static 'js/codemirror/mode/xml/xml.js' %}"></script>
+<script src="{% static 'js/codemirror/mode/htmlmixed/htmlmixed.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+
+
+<!-- AdminLTE App -->
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'js/demo.js' %}"></script>
+<!-- Page specific script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+})
+</script>
+
+
+</body>
+</html>
